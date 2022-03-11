@@ -6,7 +6,7 @@ const port = 3000
 const templateFileName = 'template.html'
 
 function renderTemplate(filename, data) {
-    let rawTemplate = fs.readFileSync(filename, 'utf-8')
+    const rawTemplate = fs.readFileSync(filename, 'utf-8')
     let res = ''
     Object.entries(data).forEach(([key, value]) => {
         res = rawTemplate.replace(new RegExp(`{{${key}}}`, 'g'), value)
