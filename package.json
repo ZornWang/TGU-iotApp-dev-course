@@ -1,0 +1,19 @@
+{
+  "name": "iotapp-dev-course",
+  "version": "1.0.0",
+  "description": "TGU iotApp-dev-course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZornWang/iotApp-dev-course.git"
+  },
+  "author": "Zorn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZornWang/iotApp-dev-course/issues"
+  },
+  "homepage": "https://github.com/ZornWang/iotApp-dev-course#readme"
+}
