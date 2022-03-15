@@ -5,12 +5,14 @@ const port = 3000
 
 const templateFileName = 'template.html'
 
-function renderTemplate(filename, data) {
+function renderTemplate(filename, data = {}) {
   const rawTemplate = fs.readFileSync(filename, 'utf-8')
-  let res = ''
-  Object.entries(data).forEach(([key, value]) => {
-    res = rawTemplate.replace(new RegExp(`{{${key}}}`, 'g'), value)
-  })
+  let res = rawTemplate.slice()
+  if (Object.keys(data).length !== 0) {
+    Object.entries(data).forEach(([key, value]) => {
+      res = res.replace(new RegExp(`{{${key}}}`, 'g'), value)
+    })
+  } else res = rawTemplate
   return res
 }
 
