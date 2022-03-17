@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+label, input {
+    text-align: center;
+}
+
+img {
+    object-fit: cover;
+}
+
+.main {
+    background-color: #f3fcd8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, 微软雅黑, Arial, sans-serif;
+}
+
+.container {
+    background-color: white;
+    padding: 40px;
+    display: flex;
+}
+
+.copyright {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+}

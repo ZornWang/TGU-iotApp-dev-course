@@ -1,0 +1,39 @@
+<%- include('../partials/header.html') -%>
+    <div class="main">
+        <div class="columns container card">
+
+            <div class="column is-4 is-offset-4">
+                <div class="box">
+                    <article class="media">
+                        <div class="media-left">
+                            <figure class="image is-96x96">
+                                <img class="is-rounded" src="<%= avatar %>" alt="Image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                    <strong>
+                                        <%= username %>
+                                    </strong>
+                                    <small>
+                                        <%= classes %>-<%= id %>
+                                    </small>
+                                    </br>
+                                    <%= desc %>
+                                        </br>
+                                        <small>
+                                            上传时间：<%= time %>
+                                        </small>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <form method="get" action="/">
+                        <button type="submit" class="button is-info is-fullwidth">返回</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <%- include('../partials/footer.html') -%>
