@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="columns container card">
+
+            <div class="column is-4 is-offset-4">
+                <div class="box">
+                    <article class="media">
+                        <div class="media-left">
+                            <figure class="image is-96x96">
+                                <img class="is-rounded" src="<%= avatar %>" alt="Image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                    <strong>
+                                        <%= username %>
+                                    </strong>
+                                    <small>
+                                        <%= classes %>-<%= id %>
+                                    </small>
+                                    </br>
+                                    <%= desc %>
+                                        </br>
+                                        <small>
+                                            上传时间：<%= time %>
+                                        </small>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <form method="get" action="/">
+                        <button type="submit" class="button is-info is-fullwidth">返回</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <p class="copyright">&copy; Copyright 2022 Zorn Wang</p>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="columns container card">
+
+            <div class="column is-4 is-offset-4">
+                <div>
+                    <form class="box" action="/" method="post" enctype="multipart/form-data">
+                        <div class="block">
+                            <div class="field">
+                                <label class="label">学号</label>
+                                <div class="control">
+                                    <input class="input" name="id" type="text" placeholder="请输入学号">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">姓名</label>
+                                <div class="control">
+                                    <input class="input" name="username" type="text" placeholder="请输入姓名">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">班级</label>
+                                <div class="control">
+                                    <input class="input" name="classes" type="text" placeholder="请输入班级">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">头像</label>
+                                <div class="control">
+                                    <input class="input" name="file" type="file" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">描述</label>
+                                <div class="control">
+                                    <input class="input" name="desc" type="text" placeholder="请输入一点自我介绍吧">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <div class="block">
+                                <button type="submit" class="button is-primary is-fullwidth">上传</button>
+                            </div>
+                            <div class="block">
+                                <button type="submit" formaction="search"
+                                    class="button is-info is-fullwidth">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <p class="copyright">&copy; Copyright 2022 Zorn Wang</p>
+</body>
+
+</html>

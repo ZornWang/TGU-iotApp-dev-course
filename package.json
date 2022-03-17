@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:lab1": "cd lab1 && node index.js",
     "start:lab2": "cd lab2 && node index.js",
-    "start:lab3": "cd lab3 && nodemon index.js"
+    "start:lab3-ejs": "cd lab3/ejs && nodemon index.js",
+    "start:lab3-common": "cd lab3/common && nodemon index.js"
   },
   "repository": {
     "type": "git",
