@@ -3,7 +3,6 @@ const bodyParser = require('body-parser')
 const multer = require('multer')
 const fs = require('fs')
 const path = require('path')
-const ejs = require('ejs')
 const app = express()
 const port = 8080
 

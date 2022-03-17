@@ -13,11 +13,6 @@ app.use(multer().single('file'))
 // 设置静态路径
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'uploads')))
-// set the view engine to ejs
-app.engine('.html', require('ejs').__express)
-// 设置视图路径
-app.set('views', path.join(__dirname, 'views/pages'))
-app.set('view engine', 'html')
 
 const defaultData = {
   title: 'iot-app-lab3',
