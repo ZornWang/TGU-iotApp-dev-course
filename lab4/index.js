@@ -36,7 +36,6 @@ app.get('/', async (req, res) => {
   const { result } = req.query
   const list = await studentModel.findAll()
   res.render('index', {
-    ...defaultData,
     title: '人员信息管理',
     list,
     result
@@ -76,6 +75,10 @@ app.post('/save', async (req, res) => {
 // 删除信息
 app.post('/delete', async (req, res) => {
   const { id } = req.body
+  // 删除头像文件
+  const { avatar } = await studentModel.findOne(id)
+  fs.unlinkSync(`uploads/avatars/${avatar}`)
+
   await studentModel.deleteById(id)
   res.redirect('/?result=删除成功')
 })
@@ -109,7 +112,6 @@ app.post('/update', async (req, res) => {
     desc
   }
   avatarName === '' ? student : (student.avatar = avatarName)
-  console.log(student)
   await studentModel.update(student)
   res.redirect('/?result=修改成功')
 })
