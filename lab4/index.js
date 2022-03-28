@@ -7,8 +7,13 @@ const ejs = require('ejs')
 const app = express()
 const port = 8080
 
-const { Student } = require('./models/student')
-const studentModel = new Student()
+const {
+  findAll,
+  findOne,
+  save,
+  updateById,
+  deleteById
+} = require('./models/StudentMapper')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -34,7 +39,7 @@ const defaultData = {
 // 默认页面
 app.get('/', async (req, res) => {
   const { result } = req.query
-  const list = await studentModel.findAll({ id: 1 })
+  const list = await findAll({ id: 1 })
   res.render('index', {
     title: '人员信息管理',
     list,
@@ -68,25 +73,21 @@ app.post('/save', async (req, res) => {
     desc,
     avatar: `${avatarName}`
   }
-  await studentModel.save(student)
+  await save(student)
   res.redirect('/?result=添加成功')
 })
 
 // 删除信息
 app.post('/delete', async (req, res) => {
   const { id } = req.body
-  // 删除头像文件
-  const { avatar } = await studentModel.findOne(id)
-  fs.unlinkSync(`uploads/avatars/${avatar}`)
-
-  await studentModel.deleteById(id)
+  await deleteById(id)
   res.redirect('/?result=删除成功')
 })
 
 // 编辑按钮
 app.get('/edit', async (req, res) => {
   const { id } = req.query
-  const student = await studentModel.findOne(id)
+  const student = await findOne(id)
   res.render('update', {
     ...defaultData,
     ...student,
@@ -112,7 +113,7 @@ app.post('/update', async (req, res) => {
     desc
   }
   avatarName === '' ? student : (student.avatar = avatarName)
-  await studentModel.update(student)
+  await updateById(student)
   res.redirect('/?result=修改成功')
 })
 
