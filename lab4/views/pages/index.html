@@ -1,0 +1,72 @@
+<%- include('../partials/header.html') -%>
+<div class="main">
+  <div class="columns card">
+    <div class="container block is-flex is-flex-direction-column">
+      <div class="buttons">
+        <a href="/add">
+          <button class="button is-link">添加学生信息</button>
+        </a>
+      </div>
+      <div>
+        <table class="table is-striped">
+          <thead>
+            <tr>
+              <th>头像</th>
+              <th>学号</th>
+              <th>姓名</th>
+              <th>班级</th>
+              <th>简介</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% list.forEach(function(item){ %>
+            <tr>
+              <td>
+                <figure class="image is-24x24">
+                  <img
+                    class="is-rounded"
+                    src="avatars/<%= item.avatar %>"
+                    alt="Image"
+                  />
+                </figure>
+              </td>
+              <th><%= item.id %></th>
+              <td><%= item.name %></td>
+              <td><%= item.classes %></td>
+              <td><%= item.desc %></td>
+              <td>
+                <div class="buttons">
+                  <form action="/delete" method="post">
+                    <input type="hidden" name="id" value="<%= item.id %>" />
+                    <button
+                      type="submit"
+                      class="button is-small is-primary"
+                      formaction="/edit?id=<%= item.id %>"
+                      formmethod="get"
+                    >
+                      编辑
+                    </button>
+                    <button type="submit" class="button is-small is-danger">
+                      删除
+                    </button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if (result) { %>
+<script>
+  setTimeout(() => {
+    alert('<%= result %>')
+  }, 500)
+</script>
+<% }%> <%- include('../partials/footer.html') -%>

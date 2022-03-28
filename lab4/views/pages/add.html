@@ -1,0 +1,77 @@
+<%- include('../partials/header.html') -%>
+<div class="main">
+  <div class="columns container card">
+    <div class="column is-4 is-offset-4">
+      <div>
+        <form
+          class="box"
+          action="/save"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="block">
+            <div class="field">
+              <label class="label">学号</label>
+              <div class="control">
+                <input
+                  required="required"
+                  class="input"
+                  name="id"
+                  type="text"
+                  placeholder="请输入学号"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">姓名</label>
+              <div class="control">
+                <input
+                  class="input"
+                  name="name"
+                  type="text"
+                  placeholder="请输入姓名"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">班级</label>
+              <div class="control">
+                <input
+                  class="input"
+                  name="classes"
+                  type="text"
+                  placeholder="请输入班级"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">头像</label>
+              <div class="control">
+                <input class="input" name="file" type="file" accept="image/*" />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">描述</label>
+              <div class="control">
+                <input
+                  class="input"
+                  name="desc"
+                  type="text"
+                  placeholder="请输入一点自我介绍吧"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block">
+              <button type="submit" class="button is-primary is-fullwidth">
+                上传
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer.html') -%>
