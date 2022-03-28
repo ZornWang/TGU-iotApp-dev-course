@@ -34,7 +34,7 @@ const defaultData = {
 // 默认页面
 app.get('/', async (req, res) => {
   const { result } = req.query
-  const list = await studentModel.findAll()
+  const list = await studentModel.findAll({ id: 1 })
   res.render('index', {
     title: '人员信息管理',
     list,
