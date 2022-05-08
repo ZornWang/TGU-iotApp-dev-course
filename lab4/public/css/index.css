@@ -2,7 +2,8 @@
     box-sizing: border-box;
 }
 
-label, input {
+label,
+input {
     text-align: center;
 }
 
@@ -16,7 +17,8 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, 微软雅黑, Arial, sans-serif;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+        Microsoft YaHei, 微软雅黑, Arial, sans-serif;
 }
 
 .container {
@@ -51,7 +53,8 @@ img {
     table-layout: fixed;
 }
 
-.table td, .table th {
+.table td,
+.table th {
     /* padding-left: 32px;
     padding-right: 32px; */
     white-space: nowrap;
