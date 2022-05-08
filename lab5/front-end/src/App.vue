@@ -16,6 +16,7 @@
 import { ref } from 'vue'
 import axios from 'axios'
 const tableData = ref([])
+const timer = ref(null)
 
 const refresh = async () => {
   const { data } = await axios.get('/api/data')
@@ -34,14 +35,14 @@ const generateData = async () => {
 }
 
 const start = async () => {
-  setInterval(() => {
+  timer.value = setInterval(() => {
     generateData()
     refresh()
   }, 3000)
 }
 
 const stop = async () => {
-  clearInterval()
+  clearInterval(timer.value)
 }
 
 const clear = async () => {
