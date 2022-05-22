@@ -9,14 +9,16 @@
       <el-table-column prop="createAt" label="创建日期" />
       <el-table-column prop="timestamp" label="时间戳" />
     </el-table>
-    <div id="chart" style="height: 360px; width: 80%; margin: auto" />
+    <!-- <div id="chart" style="height: 360px; width: 80%; margin: auto" /> -->
+    <my-chart :data="tableData" />
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
-import * as echarts from 'echarts'
+// import * as echarts from 'echarts'
+import MyChart from './components/MyChart.vue'
 
 const tableData = ref([])
 const timer = ref(null)
@@ -24,7 +26,6 @@ const timer = ref(null)
 const refresh = async () => {
   const { data } = await axios.get('/api/data')
   tableData.value = data.data
-  await updateChart()
 }
 
 refresh()
@@ -35,12 +36,12 @@ const generateData = async () => {
     createAt: Date.now(),
     timestamp: Date.parse(new Date())
   })
+  refresh()
 }
 
 const start = async () => {
-  timer.value = setInterval(() => {
+  timer.value = await setInterval(() => {
     generateData()
-    refresh()
   }, 3000)
 }
 
@@ -51,30 +52,6 @@ const stop = async () => {
 const clear = async () => {
   await axios.delete('/api/data')
   refresh()
-}
-
-const updateChart = () => {
-  if (document.getElementById('chart') == null) {
-    return
-  }
-  echarts.dispose(document.getElementById('chart'))
-  const chart = echarts.init(document.getElementById('chart'))
-  const option = {
-    xAxis: {
-      type: 'category',
-      data: [...Array(tableData.value.length).keys()]
-    },
-    yAxis: {
-      type: 'value'
-    },
-    series: [
-      {
-        data: tableData.value.map((e) => e.data),
-        type: 'line'
-      }
-    ]
-  }
-  chart.setOption(option)
 }
 </script>
 <style>
