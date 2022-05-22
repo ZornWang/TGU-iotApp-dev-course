@@ -7,7 +7,7 @@ const port = 3000
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-mongoose.connect('mongodb://localhost:27017/iot-lab5')
+mongoose.connect('mongodb://localhost:27017/iot-lab6')
 
 const dataSchema = new mongoose.Schema({
   data: Number,
