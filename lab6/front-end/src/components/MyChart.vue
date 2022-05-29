@@ -9,10 +9,6 @@ import * as echarts from 'echarts'
 export default {
   name: 'MyChart',
   props: {
-    // options: {
-    //   type: Object,
-    //   default: () => ({})
-    // }
     data: {
       type: Object,
       default: () => ({})
@@ -25,11 +21,6 @@ export default {
       chart.value = echarts.init(document.getElementById('chart'))
     }
     const updateChart = () => {
-      // if (document.getElementById('chart') == null) {
-      //   return
-      // }
-      // echarts.dispose(document.getElementById('chart'))
-      // const chart = echarts.init(document.getElementById('chart'))
       const options = {
         xAxis: {
           type: 'category',
